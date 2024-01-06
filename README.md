@@ -14,7 +14,7 @@ make sure Python and Pillow is installed, and place the script in the same direc
 
 the script will generate a file `tooltip.glsl` which should replace the existing one in the resourcepack `shaders/include` folder
 
-# example execution:
+# examples:
 
 ### green tooltip
 
