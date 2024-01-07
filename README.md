@@ -1,22 +1,22 @@
-# usage:
+# Usage:
 
-make sure Python and Pillow is installed, and place the script in the same directory as the input tooltip texture file.
+Make sure Python and Pillow are installed, and place the input tooltip texture file in the same directory as the script
 
-### script inputs:
+### Script Inputs:
 
-`file`: path to an image file used for the tooltip
+`file`: Path to an image file used for the tooltip
 
-`corner`: corner square side length in pixels
+`corner`: Corner square side length in pixels
 
-`pad`: vertical and horizontal padding when displaying ingame
+`pad`: Vertical and horizontal padding when displaying ingame
 
-### script output:
+### Script Output:
 
-the script will generate a file `tooltip.glsl` which should replace the existing one in the resourcepack `shaders/include` folder
+The script will generate a file `tooltip.glsl` Which should replace the existing one in the resourcepack `shaders/include` Folder
 
-# examples:
+# Examples:
 
-### green tooltip
+### Green Tooltip
 
 ```
 python tooltip.py --file green.png --corner 3 --pad 1 1
@@ -24,22 +24,22 @@ python tooltip.py --file green.png --corner 3 --pad 1 1
 
 ![image](https://github.com/Godlander/tooltip/assets/16228717/ee9c3878-1e77-4ac1-bb0c-5c16804c2a7f)
 
-ingame:
+Ingame:
 
 ![image](https://github.com/Godlander/tooltip/assets/16228717/30d308cf-3846-42c4-b2e0-469da82ccb40)
 
-### gold tooltip
+### Gold Tooltip
 
-due to the decoration on the top and bottom of the tooltip, some extra vertical padding is neccesary to make space
+Due to the decoration on the top and bottom of the tooltip, some extra vertical padding is necessary to make space
 ```
 python tooltip.py --file gold.png --corner 7 --pad 1 3
 ```
 
 ![image](https://github.com/Godlander/tooltip/assets/16228717/aebc2c12-9123-404e-8aee-635b573927d0)
 
-ingame:
+Ingame:
 
 ![image](https://github.com/Godlander/tooltip/assets/16228717/9e807257-6e80-4d5b-99f1-041cbc3a759e)
 
-# credits:
-shader and tool commissioned by MatchaXP
+# Credits:
+Shader and Tool Commissioned by MatchaXP
