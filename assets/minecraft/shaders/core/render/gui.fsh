@@ -33,13 +33,13 @@ void main() {
         ivec4 edge = ivec4(lessThan(corner, sizes.zzzz));
         switch ((edge.x<<0)+(edge.y<<1)+(edge.z<<2)+(edge.w<<3)) {
             case 1: //left, 0001
-                i = (corner.x)           + (side.y)             * sizes.y; color = hex(l[i]); break;
+                i = (corner.x)           + (side.y)             * sizes.z; color = hex(l[i]); break;
             case 2: //top, 0010
                 i = (side.x)             + (corner.y)           * sizes.x; color = hex(t[i]); break;
             case 4: //right, 0100
-                i = (sizes.z-corner.z-1) + (sizes.y-side.y-1)   * sizes.y; color = hex(r[i]); break;
+                i = (sizes.z-corner.z-1) + (side.y)             * sizes.z; color = hex(r[i]); break;
             case 8: //bottom, 1000
-                i = (sizes.x-side.x-1)   + (sizes.z-corner.w-1) * sizes.x; color = hex(b[i]); break;
+                i = (side.x)             + (sizes.z-corner.w-1) * sizes.x; color = hex(b[i]); break;
             case 3: //topleft, 0011
                 i = (corner.x)           + (corner.y)           * sizes.z; color = hex(tl[i]); break;
             case 6: //topright, 0110
