@@ -27,6 +27,7 @@ void main() {
     vec2 size = vec2(pmax - pmin);
 
     if (tooltip == 1) {
+        if (all(greaterThan(size, vec2(1e3)))) {discard; return;}
         int i = 0;
         ivec4 corner = ivec4(abs(vec4(pmin, pmax) - Pos.xyxy));
         ivec2 side = ivec2(clamp(abs(pmin - Pos.xy) - (size/2.) + (sizes.xy/2), ivec2(0), sizes.xy-1));

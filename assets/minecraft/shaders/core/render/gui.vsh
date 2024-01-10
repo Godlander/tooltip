@@ -7,6 +7,7 @@ in vec4 Color;
 
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
+uniform float Scale;
 
 out vec4 vertexColor;
 flat out int tooltip;
@@ -27,7 +28,7 @@ void main() {
     tooltip = 0;
     if (Position.z > 100) {
         tooltip = 1;
-        Pos.xy += pad * corners[corner];
+        Pos.xy += pad * Scale * corners[corner];
         if (gl_VertexID / 4 != 2) Pos = vec3(0);
     }
 
