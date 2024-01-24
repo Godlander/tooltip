@@ -1,7 +1,5 @@
 #version 330
 
-#define hex(i) vec4((i&0xFF000000u)>>24,(i&0xFF0000u)>>16,(i&0xFF00u)>>8,(i&0xFFu))/255.
-
 in vec3 Position;
 in vec4 Color;
 
@@ -16,7 +14,9 @@ out vec3 Pos1;
 out vec3 Pos2;
 out vec3 Pos3;
 
+#define hex(i) vec4((i&0xFF000000u)>>24,(i&0xFF0000u)>>16,(i&0xFF00u)>>8,(i&0xFFu))/255.
 const vec2[] corners = vec2[](vec2(1, 1),vec2(1, -1),vec2(-1, -1),vec2(-1, 1));
+bool isgui(mat4 ProjMat) {return ProjMat[2][3] == 0.0;}
 
 #moj_import <tooltip.glsl>
 
@@ -26,7 +26,7 @@ void main() {
     int corner = gl_VertexID % 4;
 
     tooltip = 0;
-    if (Position.z > 100) {
+    if (isgui(ProjMat) && Position.z > 300 && Position.z < 500) {
         tooltip = 1;
         Pos.xy += pad * Scale * corners[corner];
         if (gl_VertexID / 4 != 2) Pos = vec3(0);
