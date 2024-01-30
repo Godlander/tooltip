@@ -1,6 +1,8 @@
-import os
+from pathlib import Path
 import argparse
 from PIL import Image
+
+CURRENT_FILE = Path(__file__).parent
 
 
 class Vec:
@@ -57,7 +59,7 @@ def tooltip(image: Image, corner: int, pad: int):
         f"uint[] r = uint[]({ encode(image, (size.x-corner, size.x), (corner, size.y-corner))});",
         f"uint[] b = uint[]({ encode(image, (corner, size.x-corner), (size.y-corner, size.y))});",
     ]
-    with open("tooltip.glsl", "w") as file:
+    with open(CURRENT_FILE / "tooltip.glsl", "w") as file:
         file.write("\n".join(lines))
 
 
@@ -76,6 +78,6 @@ if __name__ == "__main__":
         default=(0, 0),
     )
     args = parser.parse_args()
-    with Image.open(args.file) as img:
+    with Image.open(CURRENT_FILE / args.file) as img:
         img = img.convert("RGBA")
         tooltip(img, args.corner, args.pad)
